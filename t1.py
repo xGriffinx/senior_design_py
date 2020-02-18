@@ -47,7 +47,7 @@ def clicked():
     col = comboCol.get()
     row = int(row)
     col = int(col)
-    labelList[0].configure(text="update")
+    labelList[(col-1) + ((row-1)*6)].configure(text="update")
 
 
 updateValue = Button(window, text="Enter Value", command=clicked)
