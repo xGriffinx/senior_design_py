@@ -45,9 +45,14 @@ for a in range(8):
 def man_update():
     row = comboRow.get()
     col = comboCol.get()
-    row = int(row)
-    col = int(col)
-    labelList[(col-1) + ((row-1)*6)].configure(text=firstEntry.get())
+    if row != 'Row' and col != 'Column':
+        row = int(row)
+        col = int(col)
+        if firstEntry.get() != "":
+            labelList[(col-1) + ((row-1)*6)].configure(text=firstEntry.get())
+        else:
+            print('Test')
+            #Tell them they messed up 4head
 
 
 updateValue = Button(window, text="Enter Value", command=man_update)
