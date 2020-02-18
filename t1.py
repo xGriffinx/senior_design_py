@@ -15,7 +15,7 @@ comboCol = Combobox(window)
 comboRow['values'] = ("Row", 1, 2, 3, 4, 5, 6, 7, 8)
 comboRow.current(0)
 comboRow.grid(column=0, row=1, sticky=W)
-comboCol['values'] = ("Column", 1, 2, 3, 4, 5, 6, 7, 8)
+comboCol['values'] = ("Column", 1, 2, 3, 4, 5, 6)
 comboCol.current(0)
 comboCol.grid(column=1, row=1, sticky=W)
 
@@ -36,17 +36,17 @@ chartxInc = 514
 chartyInc = 80
 inc = 0
 
-for a in range(6):
-    for b in range(8):
-        labelList.append(Label(chartFrame, text=(standard[b][a])))
-        labelList[inc].grid(column=a, row=b, padx=30, pady=20)
+for a in range(8):
+    for b in range(6):
+        labelList.append(Label(chartFrame, text=(standard[a][b])))
+        labelList[inc].grid(column=b, row=a, padx=30, pady=20)
         inc = inc + 1
 
 def clicked():
-    row = int(comboRow.get()) - 1
-    col = int(comboCol.get()) - 1
-    #.configure(text=(row+col))
-    print(labelList[0].get())
+    row = comboRow.get()
+    col = comboCol.get()
+    row = int(row)
+    col = int(col)
     labelList[0].configure(text="update")
 
 
