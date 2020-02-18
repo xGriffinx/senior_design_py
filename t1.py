@@ -29,7 +29,7 @@ standard = [[5, 10, 15, 20, 25, 30],
 [125, 130, 135, 140, 145, 150],
 [155, 160, 165, 170, 175, 180],
 [185, 190, 195, 200, 205, 210],
-[215, 220, 225, 230, 235, 240]]
+['fill', 'fill', 'fill', 'fill', 'fill', 'fill']]
 
 labelList = []
 chartxInc = 514
@@ -42,15 +42,15 @@ for a in range(8):
         labelList[inc].grid(column=b, row=a, padx=30, pady=20)
         inc = inc + 1
 
-def clicked():
+def man_update():
     row = comboRow.get()
     col = comboCol.get()
     row = int(row)
     col = int(col)
-    labelList[(col-1) + ((row-1)*6)].configure(text="update")
+    labelList[(col-1) + ((row-1)*6)].configure(text=firstEntry.get())
 
 
-updateValue = Button(window, text="Enter Value", command=clicked)
+updateValue = Button(window, text="Enter Value", command=man_update)
 updateValue.grid(column=1, row=2)
 
 window.mainloop()
