@@ -24,7 +24,7 @@ defaultValues = [10, 12, 15, 22, 33, 47, 56, 68, 82, 100,
 120000, 150000, 180000, 220000, 270000, 330000, 390000, 430000, 
 470000, 560000, 680000, 820000, 1000000, 4700000] 
 
-standardValues = [1, 2, 3, 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 
+standardValues = ['Empty', 1, 2, 3, 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 
 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91, 100, 110, 
 120, 130, 150, 160, 180, 200, 220, 240, 270, 300, 330, 360, 390, 
 430, 470, 510, 560, 620, 680, 750, 820, 910, 1000, 1100, 1200, 
@@ -129,7 +129,7 @@ def popup(inc):
     label.grid(columnspan=2, row=0, padx=20, pady=20, sticky=NSEW)
 
     updateCombo = Combobox(popup, width=15, values=standardValues)
-    updateCombo.current(inc)
+    updateCombo.current(0)
     updateCombo.grid(column=0, row=1, padx=20, pady=20, sticky=NSEW)
 
     def update(inc):
@@ -155,12 +155,16 @@ def startProg():
         button["state"] = "disabled"
     tab_Parent.select(tab1)
     currentStatus_Value["text"] = "Running"
+    startBut["state"] = "disabled"
+    endBut["state"] = "enabled"
 
 def endProg():
     print("Ending Program")
     for button in labelList:
         button["state"] = "enabled"
     currentStatus_Value["text"] = "Stopped"
+    endBut["state"] = "disabled"
+    startBut["state"] = "enabled"
 
 Style().configure('greenStart.TButton', background='spring green')
 Style().configure('redEnd.TButton', background='red')
