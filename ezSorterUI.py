@@ -112,16 +112,16 @@ def testcolor33M():
     readoutLabel_Value["text"] = 3300000
 
 testBut100 = Button(tab1, text="Test 100 ohms", width=15, command=testcolor100)
-testBut100.place(x=175, y=310)
+testBut100.place(x=308, y=310)
 
 testBut1000 = Button(tab1, text="Test 1000 ohms", width=15, command=testcolor1000)
-testBut1000.place(x=285, y=310)
+testBut1000.place(x=418, y=310)
 
 testBut56K = Button(tab1, text="Test 56 Kohms", width=15, command=testcolor56K)
-testBut56K.place(x=395, y=310)
+testBut56K.place(x=528, y=310)
 
 testBut33M = Button(tab1, text="Test 3.3 Mohms", width=15, command=testcolor33M)
-testBut33M.place(x=505, y=310)
+testBut33M.place(x=638, y=310)
 
 #### TAB 2 ####
 
