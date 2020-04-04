@@ -54,16 +54,16 @@ Style().configure('silver-rB.TLabel', background = 'snow3', foreground='snow3', 
 #### TAB 1 ####
 
 readoutFrame = Frame(tab1, width = 100, height=100)
-readoutFrame.place(x=175, y=200)
+readoutFrame.place(x=400, y=200)
 
 currentStatus = Label(readoutFrame, text="Status:")
-currentStatus.grid(row=0, column=0)
+currentStatus.grid(row=0, column=0, sticky=E)
 
 currentStatus_Value = Label(readoutFrame, text="Stopped")
 currentStatus_Value.grid(row=0, column=1)
 
 readoutLabel_Text = Label(readoutFrame, text="Last Measured Resistor:")
-readoutLabel_Text.grid(row=1, column=0)
+readoutLabel_Text.grid(row=1, column=0, sticky=E)
 
 readoutLabel_Value = Label(readoutFrame, text="")
 readoutLabel_Value.grid(row=1, column=1)
@@ -112,16 +112,16 @@ def testcolor33M():
     readoutLabel_Value["text"] = 3300000
 
 testBut100 = Button(tab1, text="Test 100 ohms", width=15, command=testcolor100)
-testBut100.place(x=175, y=300)
+testBut100.place(x=175, y=310)
 
 testBut1000 = Button(tab1, text="Test 1000 ohms", width=15, command=testcolor1000)
-testBut1000.place(x=175, y=325)
+testBut1000.place(x=285, y=310)
 
 testBut56K = Button(tab1, text="Test 56 Kohms", width=15, command=testcolor56K)
-testBut56K.place(x=175, y=350)
+testBut56K.place(x=395, y=310)
 
 testBut33M = Button(tab1, text="Test 3.3 Mohms", width=15, command=testcolor33M)
-testBut33M.place(x=175, y=375)
+testBut33M.place(x=505, y=310)
 
 #### TAB 2 ####
 
