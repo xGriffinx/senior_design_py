@@ -48,10 +48,13 @@ Style().configure('blue-rB.TLabel', background = 'blue', foreground='blue', reli
 #Gray 8, 100Mohm
 #White 9, 1Gohm
 
+Style().configure('gold-rB.TLabel', background = 'goldenrod', foreground='goldenrod', relief=RAISED)
+Style().configure('silver-rB.TLabel', background = 'snow3', foreground='snow3', relief=RAISED)
+
 #### TAB 1 ####
 
 readoutFrame = Frame(tab1, width = 100, height=100)
-readoutFrame.place(x=250, y=200)
+readoutFrame.place(x=175, y=200)
 
 currentStatus = Label(readoutFrame, text="Status:")
 currentStatus.grid(row=0, column=0)
@@ -66,7 +69,7 @@ readoutLabel_Value = Label(readoutFrame, text="")
 readoutLabel_Value.grid(row=1, column=1)
 
 resistorFrame = Frame(tab1, width=600, height=100, relief=GROOVE)
-resistorFrame.place(x=250, y=250)
+resistorFrame.place(x=175, y=250)
 
 resistorBand1 = Label(resistorFrame, width=25, style = 'default-resistorBand.TLabel')
 resistorBand1.grid(row=0, column = 0, padx = 10, pady=15)
@@ -77,41 +80,48 @@ resistorBand2.grid(row = 0, column=1, padx = 10, pady=15)
 resistorBand3 = Label(resistorFrame, width=25, style = 'default-resistorBand.TLabel')
 resistorBand3.grid(row=0, column=2, padx = 10, pady=15)
 
+toleranceBand = Label(resistorFrame, width=25, style = 'default-resistorBand.TLabel')
+toleranceBand.grid(row=0, column=3, padx=10, pady=15)
+
 def testcolor100():
     resistorBand1.configure(style='brown-rB.TLabel') #Brown
     resistorBand2.configure(style='black-rB.TLabel') #Black
     resistorBand3.configure(style='brown-rB.TLabel') #Brown
+    toleranceBand.configure(style='gold-rB.TLabel') #Tolerance
     readoutLabel_Value["text"] = 100
 
 def testcolor1000():
     resistorBand1.configure(style='brown-rB.TLabel') #Br
     resistorBand2.configure(style='black-rB.TLabel') #Bl
     resistorBand3.configure(style='red-rB.TLabel') #Red
+    toleranceBand.configure(style='gold-rB.TLabel') #Tolerance
     readoutLabel_Value["text"] = 1000
 
 def testcolor56K():
     resistorBand1.configure(style='green-rB.TLabel') #Gr
     resistorBand2.configure(style='blue-rB.TLabel') #Blue
     resistorBand3.configure(style='orange-rB.TLabel') #Or
+    toleranceBand.configure(style='gold-rB.TLabel') #Tolerance
     readoutLabel_Value["text"] = 56000
 
 def testcolor33M():
     resistorBand1.configure(style='orange-rB.TLabel') #Or
     resistorBand2.configure(style='orange-rB.TLabel') #Or
     resistorBand3.configure(style='green-rB.TLabel') #Gr
+    toleranceBand.configure(style='silver-rB.TLabel') #Tolerance
     readoutLabel_Value["text"] = 3300000
 
 testBut100 = Button(tab1, text="Test 100 ohms", width=15, command=testcolor100)
-testBut100.place(x=250, y=300)
+testBut100.place(x=175, y=300)
 
 testBut1000 = Button(tab1, text="Test 1000 ohms", width=15, command=testcolor1000)
-testBut1000.place(x=250, y=325)
+testBut1000.place(x=175, y=325)
 
 testBut56K = Button(tab1, text="Test 56 Kohms", width=15, command=testcolor56K)
-testBut56K.place(x=250, y=350)
+testBut56K.place(x=175, y=350)
 
 testBut33M = Button(tab1, text="Test 3.3 Mohms", width=15, command=testcolor33M)
-testBut33M.place(x=250, y=375)
+testBut33M.place(x=175, y=375)
 
 #### TAB 2 ####
 
@@ -172,7 +182,7 @@ Style().configure('redEnd.TButton', background='red')
 startBut = Button(window, text="Start", style='greenStart.TButton', command=startProg)
 startBut.place(x=35, y=50)
 
-endBut = Button(window, text="Stop", style='redEnd.TButton', command=endProg)
+endBut = Button(window, text="Stop", style='redEnd.TButton', state="disabled", command=endProg)
 endBut.place(x=35, y=90)
 
 window.mainloop()
